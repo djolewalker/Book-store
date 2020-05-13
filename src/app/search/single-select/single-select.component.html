@@ -1,0 +1,8 @@
+<div id="{{compID}}" [ngStyle]="{'width': (compWidth+30)+'px'}" class="select-box" (document:click)="checkToHide($event)">
+    <div [ngStyle]="{'width': compWidth+'px'}" class="select" (click)="showHideList()">{{selectedItem[0]}}</div>
+    <div id="hide-list" [ngClass]="{'hide-list': true, 'hide-list-rotate': !hiddenList}" (click)="showHideList()"></div>
+    <div [ngStyle]="{'width': compWidth+'px'}" id="select-list" [ngClass]="{'select-list': true, 'select-list-hidden': hiddenList, 'hidden-scroll-bar': !transitionDone}" (transitionstart)="startTransition()" (transitionend)="endTransition()">
+        <div [ngClass]="{'select-list-item': true, 'select-list-item-selected': selectedItem.includes(item)}" *ngFor="let item of items" (click)="selectItem(item)">
+            {{item}}</div>
+    </div>
+</div>

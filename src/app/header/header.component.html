@@ -1,0 +1,18 @@
+<div class="header" (window:scroll)="changeOnScrol()">
+    <div class="header-content">
+        <div class="header-short">
+            <a class="header-logo" routerLink='/'>
+            </a>
+            <div class="tribar-button" (click)="showMobileScreen()"></div>
+        </div>
+        <nav>
+            <div class="navigation">
+                <a class="navigation-item" routerLink='/welcome' routerLinkActive="navigation-item-active">Home</a>
+                <a class="navigation-item" routerLink='/search' routerLinkActive="navigation-item-active">Pretraživanje</a>
+                <a class="navigation-item" routerLink='/routePath' routerLinkActive="navigation-item-active">Račun</a>
+            </div>
+        </nav>
+        <app-cart-info></app-cart-info>
+    </div>
+</div>
+<app-mobile-header [ngStyle]="{'display': mobileScreen}" (closeMobileHeader)='hideMobileScreen()'></app-mobile-header>

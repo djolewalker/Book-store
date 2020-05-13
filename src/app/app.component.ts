@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-projekat';
+  title = 'Moja Knjižara';
+
+  goTop():void {
+    window.scroll(0,0);
+  }
 }

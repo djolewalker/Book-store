@@ -1,0 +1,115 @@
+.multiselect-box {
+    height: 30px;
+    width: auto;
+    overflow: visible;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.multiselect {
+    height: 30px;
+    width: 220px;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.multi-hide-list {
+    height: 30px;
+    width: 30px;
+    background-image: url("img/Otvaranje liste.svg");
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: ease 0.2s;
+    transition-property: transform;
+    cursor: pointer;
+}
+
+.multi-hide-list-rotate {
+    transform: rotate(180deg);
+}
+
+.multi-select-list {
+    max-height: 100px;
+    width: 220px;
+    background-color: white;
+    border: 1px solid black;
+    border-top: 0;
+    transition-property: max-height;
+    transition: ease 0.2s;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.hidden-scroll-bar::-webkit-scrollbar {
+    display: none !important;
+}
+
+.multi-select-list-hidden {
+    max-height: 0 !important;
+    border: 0 !important;
+}
+
+.multi-select-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.multi-select-list-item {
+    min-height: 20px;
+    width: 100%;
+    line-height: 100%;
+    font-size: 14px;
+    padding: 4px 0 0 5px;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.multi-select-list-item-selected {
+    background-color: #0098da;
+    color: white;
+}
+
+.multi-select-list-item:hover {
+    background-color: #E6F5FD;
+    color: black;
+}
+
+.multiselect-selected-item {
+    height: 20px;
+    width: auto;
+    max-width: 83px;
+    background-color: #0098da;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+}
+
+.multiselect-selected-item-value {
+    margin-left: 4px;
+    color: white;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.multiselect-selected-item-remove {
+    margin: 0 4px;
+    width: 10px;
+    height: 10px;
+    background-image: url("img/Beli X.svg");
+    background-position: center;
+    background-size: 120%;
+    background-repeat: no-repeat;
+}

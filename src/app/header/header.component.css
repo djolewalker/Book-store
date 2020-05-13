@@ -1,0 +1,96 @@
+.header {
+    width: 100%;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+}
+
+.header-content {
+    max-width: 1200px;
+    min-height: 90px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: white;
+    color: black;
+    padding: 0 0 15px 0;
+    transition: ease 0.3s;
+    transition-property: min-height;
+}
+
+.header-scroled {
+    box-shadow: 0px 4px 15px 0px rgba(171, 171, 171, 1);
+}
+
+.header-content-scroled {
+    min-height: 65px !important;
+}
+
+.header-logo {
+    width: 260px;
+    height: 70px;
+    margin-bottom: -10px;
+    background-image: url("img/Logo Moja knjizara.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-clip: border-box;
+    transition: ease 0.3s;
+    transition-property: height;
+}
+
+.header-logo-scroled {
+    height: 50px;
+}
+
+.header-short {
+    width: 300px;
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.tribar-button {
+    display: none;
+}
+
+.navigation {
+    width: 400px;
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    font-size: 18px;
+}
+
+.navigation-item:hover {
+    color: rgb(0, 152, 218);
+}
+
+.navigation-item-active {
+    color: rgb(0, 152, 218);
+}
+
+@media screen and (max-width: 860px) {
+    .header-content {
+        flex-direction: column;
+    }
+    .navigation {
+        display: none;
+    }
+    .tribar-button {
+        display: block;
+        min-width: 30px;
+        height: 30px;
+        background-image: url("img/Tribar.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .header-short {
+        width: 92%;
+        margin: 0 4%;
+        order: 2;
+    }
+}

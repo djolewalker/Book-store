@@ -1,0 +1,20 @@
+<div class="baner"></div>
+<div class="cart-conteiner">
+    <div class="cart-content">
+        <div class="cart-head">
+            <h1>Moja korpa</h1>
+            <div class="sum-info">
+                <div class="sum-info-icon">Plati</div>
+                <div class="sum-info-data">
+                    Ukupno
+                    <div class="sum-info-data-price">{{totalPrice | number:'.2'}}
+                        <div class="sum-info-data-price-currency">RSD</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-cart-item [ngClass]="{'bottom-border': true, 'gray-background':true, 'white-backgroud': items.length < 2 }" *ngFor="let item of items" [cartItem]="item" (showDetails)="showBookDetails($event)"></app-cart-item>
+        <div *ngIf="items.length === 0" class="empty-cart"></div>
+    </div>
+</div>
+<app-product-item *ngIf="showDetailsBook" [book]="showDetailsBook" (onCloseDetailView)="hideBookDetails()"></app-product-item>

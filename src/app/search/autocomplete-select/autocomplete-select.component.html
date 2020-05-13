@@ -1,0 +1,11 @@
+<div id={{compID}} class="autocomplete-box" (document:click)="checkToHide($event)">
+    <div class="input">
+        <input id="input-text" class="input-text" (keyup)="changeSearchText(false)" [(ngModel)]="filter.title" (click)="changeSearchText(false)">
+        <div class="clear-text" (click)="changeSearchText(true)"></div>
+    </div>
+    <!-- <div id="hide-list" class="hide-list" (click)="showHideList()"></div> -->
+    <div id="select-list" [ngClass]="{'select-list': true, 'select-list-hidden':hiddenList}">
+        <div class="select-list-item" *ngFor="let title of titles" (click)="applySelectText($event)">{{title}}</div>
+        <div class="select-list-item select-list-item-empty" *ngIf="titles.length === 0">No results...</div>
+    </div>
+</div>

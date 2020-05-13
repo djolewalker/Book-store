@@ -1,0 +1,85 @@
+.select-box {
+    height: 30px;
+    width: auto;
+    overflow: visible;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.select {
+    height: 30px;
+    width: 220px;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3px 0 0 6px;
+}
+
+.hide-list {
+    height: 30px;
+    width: 30px;
+    background-image: url("img/Otvaranje liste.svg");
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: ease 0.2s;
+    transition-property: transform;
+    cursor: pointer;
+}
+
+.hide-list-rotate {
+    transform: rotate(180deg);
+}
+
+.select-list {
+    max-height: 100px;
+    width: 220px;
+    background-color: white;
+    border: 1px solid black;
+    border-top: 0;
+    transition-property: max-height;
+    transition: ease 0.2s;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.hidden-scroll-bar::-webkit-scrollbar {
+    display: none !important;
+}
+
+.select-list-hidden {
+    max-height: 0 !important;
+    border: 0 !important;
+}
+
+.select-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.select-list-item {
+    min-height: 20px;
+    width: 100%;
+    line-height: 100%;
+    font-size: 14px;
+    padding: 4px 0 0 5px;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.select-list-item-selected {
+    background-color: #0098da;
+    color: white;
+}
+
+.select-list-item:hover {
+    background-color: #E6F5FD;
+    color: black;
+}

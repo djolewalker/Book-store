@@ -1,0 +1,37 @@
+<div class="product-img-wrapper">
+    <img class="product-img" src="assets/img/{{book.Korice}}" alt="asd">
+</div>
+<div class="product-data-wrapper">
+    <h3 class="title-description">{{authors.join(", ")}}</h3>
+    <h2 class="title">{{book.Naslov}}</h2>
+    <h3 class="title-description">{{book["Godina izdanja"]}}</h3>
+</div>
+<div class="product-description-wrapper">
+    <p class="product-description">{{book.Opis}}
+    </p>
+    <div class="show-details" (click)="showBookDetails()">
+        <div class="show-details-icon"></div>Detaljinje
+    </div>
+</div>
+<div class="product-buy-wrapper">
+    <div class="product-price">
+        <div class="product-price-value">{{book.Cena | number:'.2'}}</div>
+        <div class="product-price-currency">RSD</div>
+    </div>
+    <div class="edit-count">
+        <div class="edit-count-inc" (click)="incrementItem()"></div>
+        <div class="edit-count-dec" (click)="decrementItem()"></div>
+        <div class="edit-count-count">{{cartItem.count}}
+            <div class="edit-count-count-desc">kom</div>
+        </div>
+    </div>
+    <div class="buy-product" (click)="removeFromCart()">
+        <div class="buy-product-icon"></div>
+        Izbaci iz korpe
+    </div>
+    <div class="product-buy-total">
+        <div class="product-buy-total-icon"></div>
+        {{bookPrice * cartItem.count | number:'.2'}}
+        <div class="product-buy-total-currency">RSD</div>
+    </div>
+</div>

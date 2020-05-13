@@ -1,0 +1,11 @@
+<div class="screen" (click)="closeModal($event)" (window:resize)="closeModalOnResiza($event)">
+    <div class=" back-button nav-item " (click)="this.closeMobileHeader.emit()">MENU
+        <div></div>
+    </div>
+    <a [routerLink]="'/welcome'" routerLinkActive="nav-active" class="nav-item" (click)="this.closeMobileHeader.emit()">Home</a>
+    <a [routerLink]="'/search'" routerLinkActive="nav-active" class="nav-item" (click)="this.closeMobileHeader.emit()">Pretraživanje</a>
+    <a [routerLink]="'/routePath'" routerLinkActive="nav-active" class="nav-item" (click)="this.closeMobileHeader.emit()">Račun</a>
+    <a [routerLink]="'/cart'" routerLinkActive="cart-active" class="nav-item-cart" (click)="this.closeMobileHeader.emit()">
+        <app-cart-info></app-cart-info>
+    </a>
+</div>

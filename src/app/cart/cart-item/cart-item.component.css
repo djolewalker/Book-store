@@ -1,0 +1,89 @@
+@import "../../search/search-product-item/search-product-item.component.css";
+.edit-count {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.edit-count-inc {
+    width: 30px;
+    height: 30px;
+    background-image: url("img/Povecaj kolicinu.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.edit-count-dec {
+    width: 30px;
+    height: 30px;
+    background-image: url("img/Smanji kolicinu.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.edit-count-count {
+    font-size: 25px;
+    font-weight: 500px;
+    color: black;
+    display: flex;
+    align-items: baseline;
+    padding-top: 2px;
+    margin-right: 20px;
+}
+
+.edit-count-count-desc {
+    font-size: 15px;
+    color: gray;
+    margin-left: 5px;
+}
+
+.buy-product {
+    flex-direction: row-reverse;
+    width: 165px;
+}
+
+.buy-product-icon {
+    background-image: url("img/Brisi iz korpe.svg");
+    background-size: 90%;
+}
+
+.product-price {
+    margin-bottom: 10px;
+}
+
+.product-buy-total {
+    padding-top: 6px;
+    margin-top: 20px;
+    height: 40px;
+    width: 180px;
+    background-color: #0098DA;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+}
+
+.product-buy-total-currency {
+    margin-left: 10px;
+    color: white;
+    font-size: 17px;
+}
+
+.product-buy-total-icon {
+    height: 15px;
+    width: 15px;
+    background-image: url("img/suma.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    margin-right: 3px;
+}

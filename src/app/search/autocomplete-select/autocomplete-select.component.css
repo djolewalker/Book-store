@@ -1,0 +1,103 @@
+.autocomplete-box {
+    height: 30px;
+    width: 210px;
+    overflow: visible;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input {
+    height: 30px;
+    width: 210px;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+}
+
+.input-text {
+    max-height: 100%;
+    width: 210px;
+    display: flex;
+    align-items: center;
+    padding: 2px 0 0 5px;
+    user-select: unset;
+    overflow: scroll;
+    text-overflow: clip;
+    white-space: nowrap;
+    border: 0;
+    outline: 0;
+    font-size: 14px;
+}
+
+.input-text::-webkit-scrollbar {
+    display: none;
+}
+
+.clear-text {
+    height: 100%;
+    width: 30px;
+    background-image: url("img/Brisanje sadrzaja text box-a.svg");
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.hide-list {
+    height: 30px;
+    width: 30px;
+    background-image: url("img/Otvaranje liste.svg");
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: ease 0.2s;
+    transition-property: transform;
+}
+
+.hide-list-rotate {
+    transform: rotate(180deg);
+}
+
+.select-list {
+    max-height: 100px;
+    width: 210px;
+    background-color: white;
+    border: 1px solid black;
+    border-top: 0;
+    transition-property: max-height;
+    transition: ease 0.2s;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.select-list-hidden {
+    max-height: 0 !important;
+    border: 0 !important;
+}
+
+.select-list-item {
+    min-height: 20px;
+    width: 100%;
+    line-height: 100%;
+    font-size: 14px;
+    padding: 5px 0 0 5px;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.select-list-item-empty:hover {
+    background-color: white !important;
+}
+
+.select-list-item:hover {
+    background-color: #E6F5FD;
+}
+
+.select-list::-webkit-scrollbar {
+    width: 10px;
+}

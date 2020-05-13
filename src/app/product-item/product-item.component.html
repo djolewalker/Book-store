@@ -1,0 +1,50 @@
+<div class="product-item">
+    <div class="product-item-header">
+        <h1>Podaci o knjizi</h1>
+        <div class="can-close"></div>
+    </div>
+    <div class="product-item-data">
+        <div class="product-item-data-core">
+            <div class="product-img-wrapper">
+                <img class="product-img" src="assets/img/{{book.Korice}}" alt="asd">
+            </div>
+            <div class="product-data-wrapper">
+                <h3 class="title-description">{{authors.join(", ")}}</h3>
+                <h2 class="title">{{book.Naslov}}</h2>
+                <h3 class="title-description">{{book["Godina izdanja"]}}</h3>
+            </div>
+            <div class="product-buy-wrapper">
+                <div class="product-price">
+                    <div class="product-price-value">{{book.Cena | number:'.2'}}</div>
+                    <div class="product-price-currency">RSD</div>
+                </div>
+                <div class="buy-product" (click)="addToCart()">
+                    <div class="buy-product-icon"></div>
+                    Stavi u korpu
+                </div>
+            </div>
+        </div>
+        <div class="product-item-data-more">
+            <nav>
+                <div class="nav-selection" [ngClass]="{'nav-selection-selected': tabSelected===1}" (click)="tabSelected=1">Detalji</div>
+                <div class="nav-selection" [ngClass]="{'nav-selection-selected': tabSelected===2}" (click)="tabSelected=2">Opis</div>
+                <div class="nav-line"></div>
+            </nav>
+            <div *ngIf="tabSelected===1" class="product-item-data-more-content">
+                <div style="background-color: rgb(230, 231, 232);">
+                    <div class="product-item-data-label">ISBN</div>
+                    <div class="product-item-data-value">{{book.ISBN}}</div>
+                </div>
+                <div>
+                    <div class="product-item-data-label">Oblast</div>
+                    <div class="product-item-data-value">{{book.Oblast}}</div>
+                </div>
+                <div>
+                    <div class="product-item-data-label">Jezik</div>
+                    <div class="product-item-data-value">{{book.Jezik}}</div>
+                </div>
+            </div>
+            <p *ngIf="tabSelected===2" class="product-item-data-more-description">{{book.Opis}}</p>
+        </div>
+    </div>
+</div>

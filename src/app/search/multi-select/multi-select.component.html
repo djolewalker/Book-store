@@ -1,0 +1,16 @@
+<div id="{{compID}}" [ngStyle]="{'width': (compWidth+30)+'px'}" class="multiselect-box" (document:click)="checkToHide($event)">
+    <div [ngStyle]="{'width': compWidth+'px'}" class="multiselect" (click)="showHideList()">
+        <div class="multiselect-selected-item" *ngFor="let item of selectedItems.slice(0,2)">
+            <div class="multiselect-selected-item-value">{{item}}</div>
+            <div class="multiselect-selected-item-remove" (click)="addRemoveItem(item)"></div>
+        </div>
+        <div class="multiselect-selected-item" *ngIf="selectedItems.length > 2">
+            <div class="multiselect-selected-item-value" [ngStyle]="{'margin-right': '4px'}">{{selectedItems.length-2}} + </div>
+        </div>
+    </div>
+    <div id="multi-hide-list" [ngClass]="{'multi-hide-list': true, 'multi-hide-list-rotate': !hiddenList}" (click)="showHideList()"></div>
+    <div [ngStyle]="{'width': compWidth+'px'}" id="multi-select-list" [ngClass]="{'multi-select-list': true, 'multi-select-list-hidden': hiddenList, 'hidden-scroll-bar': !transitionDone}" (transitionstart)="startTransition()" (transitionend)="endTransition()">
+        <div [ngClass]="{'multi-select-list-item': true, 'multi-select-list-item-selected': selectedItems.includes(item)}" *ngFor="let item of items" (click)="addRemoveItem(item)">
+            {{item}}</div>
+    </div>
+</div>

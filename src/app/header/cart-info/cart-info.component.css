@@ -1,0 +1,59 @@
+.cart {
+    width: 220px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+}
+
+.cart-active {
+    background-color: #E6F5FD;
+}
+
+.cart-logo {
+    width: 40px;
+    height: 40px;
+    background-image: url("img/Korpa.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.cart-info {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.cart-info-count {
+    font-size: 12px;
+    color: rgb(153, 153, 153);
+}
+
+.cart-info-price {
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-info-price-value {
+    font-weight: 700;
+}
+
+.cart-info-price-curency {
+    color: rgb(153, 153, 153);
+    margin-left: 4px;
+}
+
+@media screen and (max-width: 860px) {
+    .cart {
+        justify-self: flex-end;
+        order: 1;
+        width: 170px;
+        margin-top: 10px;
+    }
+    .cart-info {
+        width: 110px;
+    }
+}
