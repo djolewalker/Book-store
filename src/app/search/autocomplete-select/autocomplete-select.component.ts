@@ -33,7 +33,7 @@ export class AutocompleteSelectComponent implements OnInit {
         this.titles = this.bookService.searchTitles(searchString);
         this.cd.detectChanges();
         if (!this.lastSelection)
-          this.showHideList();
+          this.hiddenList = false;
         this.lastSelection = false;
       }
     );

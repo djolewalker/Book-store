@@ -1,0 +1,89 @@
+<div class="baner"></div>
+<div class="checkout-conteiner">
+    <div class="checkout-content">
+        <div class="checkout-head">
+            <h1>Plaćanje</h1>
+        </div>
+        <div class="checkout-items">
+            <div class="checkout-item" *ngFor="let item of items">
+                <img class="checkout-item-img" src="assets/img/{{getBookByISBN(item.bookIsbn).Korice}}">
+                <div>
+                    <div class="checkout-item-name">{{getBookByISBN(item.bookIsbn).Naslov}}</div>
+                    <div class="checkout-item-price">{{getBookByISBN(item.bookIsbn).Cena | number:'.2'}}
+                        <div class="checkout-item-price-currency">RSD</div>
+                        <div class="checkout-item-count">x {{item.count}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="empty-cart" *ngIf="items.length === 0">
+                <mat-label class="empty-cart-label">Nema artikala u korpi!</mat-label>
+                <a class="go-to-shop" routerLink='/search'> Povratak na prodavnicu</a>
+            </div>
+        </div>
+        <div class="checkout-payment" *ngIf="items.length !== 0">
+            <form class="customer-info" (submit)="confirmBuy()">
+                <h2>Podaci o kupcu:</h2>
+                <mat-form-field>
+                    <mat-label>Ime</mat-label>
+                    <input matInput [formControl]="nameController" required type="text" [(ngModel)]="customer.name">
+                    <mat-error *ngIf="nameController.hasError('required')">Unseite ime</mat-error>
+                    <button mat-button *ngIf="customer.name" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="customer.name=''">
+                        <mat-icon class="mat-icon-close"></mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Prezime</mat-label>
+                    <input matInput [formControl]="surnameController" required type="text"
+                        [(ngModel)]="customer.surname">
+                    <mat-error *ngIf="surnameController.hasError('required')">Unseite prezime</mat-error>
+                    <button mat-button *ngIf="customer.surname" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="customer.surname=''">
+                        <mat-icon class="mat-icon-close"></mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Država</mat-label>
+                    <mat-select [formControl]="countryController" required [(ngModel)]="customer.country">
+                        <mat-option *ngFor="let aCountry of availableCountries" value="{{aCountry}}">{{aCountry}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="cityController.hasError('required')">Odaberite državu</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Grad</mat-label>
+                    <input matInput [formControl]="cityController" required type="text" [(ngModel)]="customer.city">
+                    <mat-error *ngIf="cityController.hasError('required')">Unseite grad</mat-error>
+                    <button mat-button *ngIf="customer.city" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="customer.city=''">
+                        <mat-icon class="mat-icon-close"></mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Adresa</mat-label>
+                    <input matInput [formControl]="addresController" required type="text" [(ngModel)]="customer.addres">
+                    <mat-error *ngIf="addresController.hasError('required')">Unseite adresu</mat-error>
+                    <button mat-button *ngIf="customer.addres" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="customer.addres=''">
+                        <mat-icon class="mat-icon-close"></mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>E-mail adresa</mat-label>
+                    <input matInput [formControl]="emailController" required type="text" [(ngModel)]="customer.email">
+                    <mat-error *ngIf="emailController.hasError('required')">Unseite e-adresu</mat-error>
+                    <mat-error *ngIf="emailController.hasError('email')">Neodgovarajuć format e-adrese</mat-error>
+                    <button mat-button *ngIf="customer.email" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="customer.email=''">
+                        <mat-icon class="mat-icon-close"></mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-label class="total-price">Iznos: <span class="total-price-value">{{totalPrice | number:'.2'}}
+                        RSD</span></mat-label>
+                <button type="submit" class="confirm-buy">Potvrdi kupovinu</button>
+            </form>
+            <div class="checout-details"></div>
+        </div>
+    </div>
+</div>
+<app-confirm-modal *ngIf="showConfirmDialog" [dialogOption]="availableDialogOptions" (onSelectedOption)="checkDialogResponse($event)"></app-confirm-modal>

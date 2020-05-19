@@ -67,9 +67,9 @@ export class SearchComponent implements OnInit {
   startSearch(): void {
     this.router.navigate(['/search'], {
       queryParams: {
-        title: this.filterData.title,
-        categories: this.filterData.categories,
-        languages: this.filterData.languages,
+        title: this.filterData.title.length > 0 ? this.filterData.title : undefined,
+        categories: this.filterData.categories.length > 0 ? this.filterData.categories : undefined,
+        languages: this.filterData.languages.length > 0 ? this.filterData.languages : undefined,
         price: this.filterData.price,
         dateFrom: this.filterData.dateFrom,
         dateTo: this.filterData.dateTo,

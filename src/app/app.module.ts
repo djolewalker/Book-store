@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,11 @@ import { SearchProductItemComponent } from './search/search-product-item/search-
 import { ProductItemComponent } from './product-item/product-item.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { MatSelectModule } from '@angular/material/select';
+import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +42,10 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     SearchProductItemComponent,
     ProductItemComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    CheckoutComponent,
+    ConfirmModalComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +55,12 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     MatNativeDateModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,6 +15,9 @@
         </div>
         <app-cart-item [ngClass]="{'bottom-border': true, 'gray-background':true, 'white-backgroud': items.length < 2 }" *ngFor="let item of items" [cartItem]="item" (showDetails)="showBookDetails($event)"></app-cart-item>
         <div *ngIf="items.length === 0" class="empty-cart"></div>
+        <div *ngIf="items.length > 0" class="checkout-countainer">
+            <a routerLink='/checkout' class="checkout-btn">Plaćanje</a>
+        </div>
     </div>
 </div>
 <app-product-item *ngIf="showDetailsBook" [book]="showDetailsBook" (onCloseDetailView)="hideBookDetails()"></app-product-item>

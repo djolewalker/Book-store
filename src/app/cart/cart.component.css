@@ -105,6 +105,31 @@
     border-bottom: 0;
 }
 
+.checkout-countainer {
+    width: 98%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checkout-btn {
+    height: 50px;
+    width: 220px;
+    background-color: #0098DA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    margin: 0 0 10px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    color: #0098DA;
+    background-color: white;
+    border: 2px solid #0098DA;
+}
+
 @media screen and (max-width: 800px) {
     .gray-background:nth-of-type(odd) {
         background-color: #F1F1F2;

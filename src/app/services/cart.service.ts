@@ -72,4 +72,9 @@ export class CartService {
     localStorage.setItem(this.LS_ITEM_NAME, JSON.stringify(items));
     this.storageSub.next('changed');
   }
+
+  removeAll(): void {
+    localStorage.removeItem(this.LS_ITEM_NAME);
+    this.storageSub.next('changed');
+  }
 }

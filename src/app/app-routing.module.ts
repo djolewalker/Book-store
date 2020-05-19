@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component'
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 const routes: Routes = [
   {
@@ -21,7 +23,17 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
-  }, 
+  },
+  {
+    path: 'checkout',
+    children: [{
+      path: '',
+      component: CheckoutComponent,
+    }, {
+      path: 'order-recived',
+      component: ThankYouComponent
+    }]
+  },
   {
     path: '**',
     redirectTo: 'welcome',
