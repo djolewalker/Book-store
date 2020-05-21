@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+
 
 
 @NgModule({
@@ -60,7 +61,7 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
     MatSelectModule,
     ReactiveFormsModule
   ],
-  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,40 +12,38 @@
                 <div class="filter-elements">
                     <div class="filter-item">
                         <label for="autocomplete-select">Naslov</label>
-                        <app-autocomplete-select name="autocomplete-select" [filter]="filterData"></app-autocomplete-select>
+                        <app-autocomplete-select name="autocomplete-select" [filter]="filterData">
+                        </app-autocomplete-select>
                     </div>
                     <div class="filter-item">
                         <label for="multi-select">Oblast</label>
-                        <app-multi-select name="multi-select" [items]="bookService.getCategories()" [selectedItems]="filterData.categories" [compWidth]="215">
+                        <app-multi-select name="multi-select" [items]="bookService.getCategories()"
+                            [selectedItems]="filterData.categories" [compWidth]="215">
                         </app-multi-select>
                     </div>
                     <div class="filter-item">
                         <label for="multi-select">Jezik</label>
-                        <app-multi-select name="multi-select" [items]="bookService.getLanguages()" [selectedItems]="filterData.languages" [compWidth]="130">
+                        <app-multi-select name="multi-select" [items]="bookService.getLanguages()"
+                            [selectedItems]="filterData.languages" [compWidth]="130">
                         </app-multi-select>
                     </div>
                     <div class="filter-item">
                         <label for="max-price">Najviša cena</label>
-                        <div class="field-wrapper">
-                            <input type="number" name="max-price" id="max-price" class="max-price" [(ngModel)]="filterData.price">
+                        <form class="field-wrapper">
+                            <input type="number" name="max-price" id="max-price" class="max-price"
+                                (input)="priceValueListener.next()" [(ngModel)]="priceValue">
                             <label class="currency" for="max-price">RSD</label>
-                        </div>
+                        </form>
                     </div>
                     <div class="filter-item">
-                        <label for="double-field-wrapper">Datum izdanja</label>
+                        <label for="double-field-wrapper">Godina izdanja</label>
                         <div class="double-field-wrapper" name="double-field-wrapper">
                             <label class="date-label" for="start-date">od</label>
-                            <mat-form-field name="start-date">
-                                <input matInput [matDatepicker]="myDatepickerFrom" [max]="maxDateAll" [(ngModel)]="filterData.dateFrom" (dateChange)="dateFromChaned()">
-                                <mat-datepicker-toggle matSuffix [for]="myDatepickerFrom"></mat-datepicker-toggle>
-                                <mat-datepicker #myDatepickerFrom></mat-datepicker>
-                            </mat-form-field>
+                            <app-single-select class="single-select" [isCancelable]="true" [items]="yearsFrom" [selectedItem]="selectedYearFrom"
+                [compWidth]="120" (onSelectionChange)="yearChanged()"></app-single-select>
                             <label class="date-label" for="end-date">do</label>
-                            <mat-form-field name="end-date">
-                                <input matInput [matDatepicker]="myDatepickerTo" [max]="maxDateAll" [min]="minDateTo" [(ngModel)]="filterData.dateTo">
-                                <mat-datepicker-toggle matSuffix [for]="myDatepickerTo"></mat-datepicker-toggle>
-                                <mat-datepicker #myDatepickerTo></mat-datepicker>
-                            </mat-form-field>
+                            <app-single-select class="single-select" [isCancelable]="true" [items]="yearsTo" [selectedItem]="selectedYearTo"
+                [compWidth]="120" (onSelectionChange)="yearChanged()"></app-single-select>
                         </div>
                     </div>
                 </div>
@@ -58,10 +56,14 @@
         <div class="sort-box">
             <div class="sort-icon"></div>
             <h3>Sort</h3>
-            <app-single-select class="single-select" [items]="sortOptions" [selectedItem]="selectedSort" [compWidth]="150" (onSelectionChange)="startSearch()"></app-single-select>
+            <app-single-select class="single-select" [items]="sortOptions" [selectedItem]="selectedSort"
+                [compWidth]="200" (onSelectionChange)="startSearch()"></app-single-select>
         </div>
-        <app-search-product-item [ngClass]="{'bottom-border': true, 'gray-background':true, 'white-backgroud': books.length < 2 }" *ngFor="let book of books" [book]="book" (showDetails)="showBookDetails($event)"></app-search-product-item>
+        <app-search-product-item
+            [ngClass]="{'bottom-border': true, 'gray-background':true, 'white-backgroud': books.length < 2 }"
+            *ngFor="let book of books" [book]="book" (showDetails)="showBookDetails($event)"></app-search-product-item>
         <img *ngIf="books.length === 0" class="no-result" src="assets/img/No results.png" alt="No results.png">
     </div>
 </div>
-<app-product-item *ngIf="showDetailsBook" [book]="showDetailsBook" (onCloseDetailView)="hideBookDetails()"></app-product-item>
+<app-product-item *ngIf="showDetailsBook" [book]="showDetailsBook" (onCloseDetailView)="hideBookDetails()">
+</app-product-item>

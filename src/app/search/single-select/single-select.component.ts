@@ -11,6 +11,7 @@ export class SingleSelectComponent implements OnInit {
   @Input() items: string[] = [];
   @Input() selectedItem: string[] = [];
   @Input() compWidth: number;
+  @Input() isCancelable: boolean = false;
   @Output() onSelectionChange = new EventEmitter();
   hiddenList: boolean = true;
   transitionDone: boolean = true;

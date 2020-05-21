@@ -3,6 +3,6 @@ export class Filter {
     categories: string[] = [];
     languages: string[] = [];
     price: number;
-    dateFrom: Date;
-    dateTo: Date;
+    yearFrom: number;
+    yearTo: number;
 }

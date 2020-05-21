@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { ComponentHelperService } from '../../services/component-helper.service'
-import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-multi-select',

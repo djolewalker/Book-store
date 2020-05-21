@@ -157,6 +157,11 @@ input[type="number"] {
     margin-right: 5px;
 }
 
+.double-field-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .double-field-wrapper * {
     margin: 0 5px;
 }

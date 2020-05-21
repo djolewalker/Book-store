@@ -13,4 +13,8 @@ describe('ComponentHelperService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should generate unique values "getUniqueID()"', () => {
+    expect(service.getUniqueID() === service.getUniqueID()).toBeFalse();
+  })
 });

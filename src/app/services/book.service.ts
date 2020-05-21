@@ -24,6 +24,16 @@ export class BookService {
     return languages;
   }
 
+  getYears(): string[] {
+    let min = Math.min(...this.books.map(book => parseInt(book["Godina izdanja"])));
+    let max = new Date().getFullYear();
+    let yearList = [];
+    for (let index = min; index <= max; index++) {
+      yearList.push(index);
+    }
+    return yearList;
+  }
+
   getCategories(): string[] {
     let categories: string[] = [];
     this.books.map(book => book.Oblast).forEach(category => { if (!categories.includes(category)) categories.push(category) });
@@ -37,21 +47,16 @@ export class BookService {
   getBooks(filter: Filter, sort: string): Book[] {
     let books: Book[] = this.books;
     if (!this.isEmpty(filter.title)) books = books.filter(book => book.Naslov.toLowerCase().includes(filter.title.toLowerCase()));
-    if (!this.isEmpty(filter.categories) && filter.categories.length > 0) books = books.filter(
-      function (book) {
-        return this.includes(book.Oblast);
-      },
-      filter.categories
+    if (!this.isEmpty(filter.categories) && filter.categories.length > 0) books = books.filter(book =>
+      filter.categories.includes(book.Oblast)
     );
     if (!this.isEmpty(filter.languages) && filter.languages.length > 0) books = books.filter(
-      function (book) {
-        return this.includes(book.Jezik);
-      },
-      filter.languages
+      book =>
+        filter.languages.includes(book.Jezik)
     );
     if (!this.isEmpty(filter.price)) books = books.filter(book => parseFloat(book.Cena) <= filter.price);
-    if (!this.isEmpty(filter.dateFrom)) books = books.filter(book => parseInt(book["Godina izdanja"]) >= filter.dateFrom.getFullYear());
-    if (!this.isEmpty(filter.dateTo)) books = books.filter(book => parseInt(book["Godina izdanja"]) <= filter.dateTo.getFullYear());
+    if (!this.isEmpty(filter.yearFrom)) books = books.filter(book => parseInt(book["Godina izdanja"]) >= filter.yearFrom);
+    if (!this.isEmpty(filter.yearTo)) books = books.filter(book => parseInt(book["Godina izdanja"]) <= filter.yearTo);
     if (!this.isEmpty(sort)) {
       if (sort === 'Cene rastuće') books = books.sort((a, b) => parseFloat(a.Cena) - parseFloat(b.Cena));
       else if (sort === 'Cene opadajuće') books = books.sort((a, b) => parseFloat(b.Cena) - parseFloat(a.Cena));

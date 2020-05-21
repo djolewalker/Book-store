@@ -5,7 +5,7 @@
             <div class="multiselect-selected-item-remove" (click)="addRemoveItem(item)"></div>
         </div>
         <div class="multiselect-selected-item" *ngIf="selectedItems.length > 2">
-            <div class="multiselect-selected-item-value" [ngStyle]="{'margin-right': '4px'}">{{selectedItems.length-2}} + </div>
+            <div class="multiselect-selected-item-value" [ngStyle]="{'margin-right': '4px'}">{{selectedItems.length-2}} +</div>
         </div>
     </div>
     <div id="multi-hide-list" [ngClass]="{'multi-hide-list': true, 'multi-hide-list-rotate': !hiddenList}" (click)="showHideList()"></div>
